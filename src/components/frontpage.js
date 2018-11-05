@@ -6,6 +6,7 @@ import { Grid, Image } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import 'react-sticky-header/styles.css';
 import StickyHeader from 'react-sticky-header';
+import StickyHeaderComp from './StickyHeader';
 
 
 //https://coolors.co/931621-28464b-326771-2c8c99-42d9c8
@@ -13,29 +14,42 @@ import StickyHeader from 'react-sticky-header';
 const Wrapper = styled.div`
     position:absolute;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size:40;
+  font-size:2em;
   width:100%;
   height:200%;
   background-color:lightskyblue;
   text-align: center;
   overflow-y: scroll;
+
+`
+
+const AllColumnsStyle = styled.div`
+  overflow: auto;
+  padding-top: 6%;
+height:800%;
+
 `
 
 const FirstRow = styled.div`
 background-color:#28464B;
 width: 100%;
-height:200%;
+height:30px;
 `
 const ColumnOne = styled.div`
 background-color:#2C8C99 ;
 width:33%;
 height: 400%;
+text-align: center;
+
 
 `
 const ColumnTwo = styled.div`
 background-color:#28464B ;
 width:33%;
 height: 400%;
+text-align: center;
+
+
 
 
 `
@@ -43,6 +57,8 @@ const ColumnThree = styled.div`
 background-color: #931621;
 width:33%;
 height: 400%;
+text-align: center;
+
 `
 const ColumnStyle1 = styled.div`
 background-color: red;
@@ -61,72 +77,40 @@ class Frontpage extends Component {
 
     return (
       <Wrapper>
- <StickyHeader
-    // This is the sticky part of the header.
-    header={
-      <div className="Header_root">
-       <FirstRow>Welcome to my website!</FirstRow> 
-      </div>
-    }>
-    <section>
-      <p>section</p>
-      <p>
-        This section will be what the sticky header scrolls over before entering into
-        sticky state. See the gif above or run the test story book to see examples.
-      </p>
-    </section>
-  </StickyHeader>
-);
+        <StickyHeaderComp />
+        <AllColumnsStyle>
+          <Grid columns={3}>
+            <Grid.Row >
+              <ColumnOne>
+                <Grid.Column>
+                  <div style={{ fontSize: 20 }}>Count: {this.props.count} </div>
+                  <button onClick={this.props.onIncrementClick} style={{ fontSize: 20 }}> increment</button>
+                </Grid.Column>
+              </ColumnOne>
 
+              <ColumnTwo>
+                <Grid.Column>
+                  <button onClick={this.props.onDecrementClick} style={{ fontSize: 20 }}> decrement</button>
+                </Grid.Column>
+              </ColumnTwo>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        <Grid columns={3}>
-          <Grid.Row >
-            <ColumnOne>
-              <Grid.Column>
-                <div style={{ fontSize: 20 }}>Count: {this.props.count} </div>
-                <button onClick={this.props.onIncrementClick} style={{ fontSize: 20 }}> increment</button>
-              </Grid.Column>
-            </ColumnOne>
-
-            <ColumnTwo>
-              <Grid.Column>
-                <button onClick={this.props.onDecrementClick} style={{ fontSize: 20 }}> decrement</button>
-              </Grid.Column>
-            </ColumnTwo>
-
-            <ColumnThree>
-              <Grid.Column>
-                <div>
-                  <form onSubmit={this.handleSubmit.bind(this)}>
-                    <input ref="input" />
-                    <button type="submit">
-                      Add Todoo
+              <ColumnThree>
+                <Grid.Column>
+                  <div>
+                    <form onSubmit={this.handleSubmit.bind(this)}>
+                      <input ref="input" />
+                      <button type="submit">
+                        Add Todoo
                     </button>
-                  </form>
-                  {this.props.info}
-                </div>
-              </Grid.Column>
-            </ColumnThree>
-          </Grid.Row>
-        </Grid>
+                    </form>
+                    {this.props.info}
+                  </div>
+                </Grid.Column>
+              </ColumnThree>
+            </Grid.Row>
+          </Grid>
+        </AllColumnsStyle>
       </Wrapper >
-
 
 
 
