@@ -1,8 +1,11 @@
 import React from 'react'
 import Frontpage from './frontpage.js'
-import store from '../reducers/todos.js'
 import styled from 'styled-components'
-import Layout from './Layout'
+import configureStore from '../store/configureStore'
+
+
+const store = configureStore()
+
 
 
 const StyledDiv = styled.div`

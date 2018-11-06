@@ -9,6 +9,7 @@ import StickyHeader from 'react-sticky-header';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStroopwafel, faHome, faBuilding } from '@fortawesome/free-solid-svg-icons'
+import { relative } from 'path';
 
 library.add(faHome, faBuilding)
 
@@ -42,7 +43,7 @@ class StickyHeaderComp extends Component {
 
                         <FirstRow>
                             <button style={{
-                                float: 'left', backgroundColor: 'transparent'
+                                float: 'left', backgroundColor: 'transparent', position: 'absolute', top: 0, left: 0
 
                             }}>
                                 < FontAwesomeIcon style={{ color: 'white', alignItems: 'center' }} icon="home" />

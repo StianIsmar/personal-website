@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { incrementCounter, decrementCounter, updateInfo } from '../actions/index.js'
+import { incrementCounter, decrementCounter, updateInfo, loadColor } from '../actions/index.js'
 import styled from 'styled-components'
 import { Grid, Image } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import 'react-sticky-header/styles.css';
 import StickyHeader from 'react-sticky-header';
 import StickyHeaderComp from './StickyHeader';
+import BoxCon from './BoxCon';
+import store from '../reducers/todos.js'
+
 
 
 //https://coolors.co/931621-28464b-326771-2c8c99-42d9c8
@@ -37,7 +40,7 @@ height:30px;
 `
 const ColumnOne = styled.div`
 background-color:#2C8C99 ;
-width:33%;
+width:20%;
 height: 400%;
 text-align: center;
 
@@ -45,7 +48,7 @@ text-align: center;
 `
 const ColumnTwo = styled.div`
 background-color:#28464B ;
-width:33%;
+width:60%;
 height: 400%;
 text-align: center;
 
@@ -55,7 +58,7 @@ text-align: center;
 `
 const ColumnThree = styled.div`
 background-color: #931621;
-width:33%;
+width:20%;
 height: 400%;
 text-align: center;
 
@@ -79,10 +82,10 @@ class Frontpage extends Component {
       <Wrapper>
         <StickyHeaderComp />
         <AllColumnsStyle>
-          <Grid columns={3}>
+          <Grid columns={12}>
             <Grid.Row >
               <ColumnOne>
-                <Grid.Column>
+                <Grid.Column >
                   <div style={{ fontSize: 20 }}>Count: {this.props.count} </div>
                   <button onClick={this.props.onIncrementClick} style={{ fontSize: 20 }}> increment</button>
                 </Grid.Column>
@@ -104,6 +107,7 @@ class Frontpage extends Component {
                     </button>
                     </form>
                     {this.props.info}
+                    <BoxCon store={store} />
                   </div>
                 </Grid.Column>
               </ColumnThree>
