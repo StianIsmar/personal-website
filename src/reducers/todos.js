@@ -1,4 +1,4 @@
-import { createStore } from 'redux'
+/*import { createStore } from 'redux'
 const initialState = {
     count: 3,
     info: []
@@ -19,4 +19,4 @@ const todos = (state = initialState, action) => {
     return state;
 }
 const store = createStore(todos, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-export default store;
+export default store;*/

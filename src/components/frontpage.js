@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { incrementCounter, decrementCounter, updateInfo, loadColor } from '../actions/index.js'
 import styled from 'styled-components'
 import { Grid, Image } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
@@ -8,7 +7,6 @@ import 'react-sticky-header/styles.css';
 import StickyHeader from 'react-sticky-header';
 import StickyHeaderComp from './StickyHeader';
 import BoxCon from './BoxCon';
-import store from '../reducers/todos.js'
 
 
 
@@ -61,12 +59,15 @@ background-color: #931621;
 width:20%;
 height: 400%;
 text-align: center;
+display: inline-block;
+
 
 `
 const ColumnStyle1 = styled.div`
 background-color: red;
 `
 class Frontpage extends Component {
+
   handleSubmit(event) {
     let input = this.refs.input;
     event.preventDefault();
@@ -84,16 +85,15 @@ class Frontpage extends Component {
         <AllColumnsStyle>
           <Grid columns={12}>
             <Grid.Row >
-              <ColumnOne>
+              <ColumnOne style={{
+                backgroundColor: `${this.props.color}`
+              }}>
                 <Grid.Column >
-                  <div style={{ fontSize: 20 }}>Count: {this.props.count} </div>
-                  <button onClick={this.props.onIncrementClick} style={{ fontSize: 20 }}> increment</button>
                 </Grid.Column>
               </ColumnOne>
 
               <ColumnTwo>
                 <Grid.Column>
-                  <button onClick={this.props.onDecrementClick} style={{ fontSize: 20 }}> decrement</button>
                 </Grid.Column>
               </ColumnTwo>
 
@@ -107,7 +107,7 @@ class Frontpage extends Component {
                     </button>
                     </form>
                     {this.props.info}
-                    <BoxCon store={store} />
+                    <BoxCon />
                   </div>
                 </Grid.Column>
               </ColumnThree>
@@ -122,31 +122,12 @@ class Frontpage extends Component {
     )
   }
 }
-//Map from state to props:
 function mapStateToProps(state) {
   console.log('mapStateToProps', state);
   return {
-    count: state.count,
-    info: state.info
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    onIncrementClick: () => {
-      dispatch(incrementCounter())
-    },
-    onDecrementClick: () => {
-      dispatch(decrementCounter())
-    },
-    addInput: (text) => {
-      dispatch(updateInfo(text))
-    }
+    color: state.color
 
   }
 }
-
-// Connect the function to the state: Creating a new comp and
-// wrapping ours in it
-export default connect(mapStateToProps, mapDispatchToProps)(Frontpage);
-
+//Map from state to props:
+export default connect(mapStateToProps)(Frontpage);

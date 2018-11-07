@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { incrementCounter, decrementCounter, updateInfo } from '../actions/index.js'
 import styled from 'styled-components'
 import Logo from '../filmguru-logo2.jpg'
 import Horsepic from '../horse.jpg'

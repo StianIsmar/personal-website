@@ -1,13 +1,16 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
-import rootReducer from '../reducers/reducers'
+import SearchFormReducer from '../reducers/SerchFormReducer'
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
-export default function configureStore(preloadedState) {
+function configureStore(preloadedState) {
     return createStore(
-        rootReducer,
+        SearchFormReducer,
         composeEnhancer(applyMiddleware(thunk)),
     );
 
 }
+const store = configureStore();
+
+export default store;
