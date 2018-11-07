@@ -58,7 +58,7 @@ export const SearchFormReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 loading: false,
                 error: action.payload.error.message,
-                color: 'white'
+                color: 'black'
             });
         default:
             return state
