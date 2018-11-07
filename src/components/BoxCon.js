@@ -32,7 +32,8 @@ class BoxCon extends Component {
 function mapStateToProps(state) {
     console.log('mapStateToProps', state);
     return {
-        color: state.color
+        color: state.color,
+        text: state.text
 
     }
 }

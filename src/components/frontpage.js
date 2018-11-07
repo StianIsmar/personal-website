@@ -7,6 +7,7 @@ import 'react-sticky-header/styles.css';
 import StickyHeader from 'react-sticky-header';
 import StickyHeaderComp from './StickyHeader';
 import BoxCon from './BoxCon';
+import { addText } from '../actions/SearchFormActions'
 
 
 
@@ -63,9 +64,14 @@ display: inline-block;
 
 
 `
-const ColumnStyle1 = styled.div`
-background-color: red;
+const SearchStyle = styled.button`
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+align-items: center;
 `
+
 class Frontpage extends Component {
 
   handleSubmit(event) {
@@ -75,6 +81,7 @@ class Frontpage extends Component {
       return
     }
     this.props.addInput(input.value);
+    console.log(input.value, "FRONTOAGE INPUT VALUE")
     input.value = ''
   }
   render() {
@@ -94,6 +101,9 @@ class Frontpage extends Component {
 
               <ColumnTwo>
                 <Grid.Column>
+                  Hardcoded
+                  {this.props.text}
+
                 </Grid.Column>
               </ColumnTwo>
 
@@ -102,9 +112,9 @@ class Frontpage extends Component {
                   <div>
                     <form onSubmit={this.handleSubmit.bind(this)}>
                       <input ref="input" />
-                      <button type="submit">
+                      <SearchStyle type="submit">
                         Add Todoo
-                    </button>
+                      </SearchStyle>
                     </form>
                     {this.props.info}
                     <BoxCon />
@@ -125,9 +135,19 @@ class Frontpage extends Component {
 function mapStateToProps(state) {
   console.log('mapStateToProps', state);
   return {
-    color: state.color
+    text: state.text
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+
+    addInput: (text) => {
+      dispatch(addText(text))
+    }
 
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Frontpage);
 //Map from state to props:
-export default connect(mapStateToProps)(Frontpage);

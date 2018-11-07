@@ -1,4 +1,4 @@
-import { SUBMIT_SEARCH, UPDATE_GENRE, UPDATE_TITLE, EXPORT_COLOR, FETCH_COLOR_BEGIN, FETCH_COLOR_FAILURE, FETCH_COLOR_SUCCESS } from "./SearchFormActionTypes";
+import { SUBMIT_SEARCH, UPDATE_GENRE, UPDATE_TITLE, EXPORT_COLOR, ADD_TEXT, FETCH_COLOR_BEGIN, FETCH_COLOR_FAILURE, FETCH_COLOR_SUCCESS } from "./SearchFormActionTypes";
 
 export function updateTitle(title) {
   return { type: UPDATE_TITLE, title }
@@ -55,4 +55,12 @@ function handleErrors(response) {
     throw Error(response.statusText);
   }
   return response;
+}
+
+export function addText(text) {
+  console.log(text, "TEXT FROM ACTIONS")
+  return {
+    type: ADD_TEXT,
+    payload: text
+  }
 }

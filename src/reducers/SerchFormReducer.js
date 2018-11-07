@@ -6,13 +6,15 @@ import {
     EXPORT_COLOR,
     FETCH_COLOR_BEGIN,
     FETCH_COLOR_FAILURE,
-    FETCH_COLOR_SUCCESS
+    FETCH_COLOR_SUCCESS,
+    ADD_TEXT
 } from "../actions/SearchFormActionTypes";
 
 const initialState = {
     color: '',
     loading: false,
-    error: null
+    error: null,
+    text: ''
 };
 
 export const SearchFormReducer = (state = initialState, action) => {
@@ -59,6 +61,10 @@ export const SearchFormReducer = (state = initialState, action) => {
                 loading: false,
                 error: action.payload.error.message,
                 color: 'black'
+            });
+        case ADD_TEXT:
+            return Object.assign({}, state, console.log(action.payload, "ACTION PAYLOAD ADD_TEXT REDUCER"), {
+                text: action.payload
             });
         default:
             return state
