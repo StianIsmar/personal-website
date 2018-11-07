@@ -9,12 +9,14 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStroopwafel, faHome, faBuilding } from '@fortawesome/free-solid-svg-icons'
 import { relative } from 'path';
+import './assets/css/fonts.css';
 
 library.add(faHome, faBuilding)
 
 
 
 const FirstRow = styled.div`
+font-family: 'Bungee Inline', cursive;
 background-color:#28464B;
 width: 100%;
 font-size:2em;
