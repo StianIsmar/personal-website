@@ -23,7 +23,7 @@ export default class AscendImage extends Component {
 
         return (
             <ImgDiv>
-                <img src={ascendImg} />
+                <img src={ascendImg} width="100%" height="10%" />
             </ImgDiv>
         )
     }
