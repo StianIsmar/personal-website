@@ -7,14 +7,17 @@ import {
     FETCH_COLOR_BEGIN,
     FETCH_COLOR_FAILURE,
     FETCH_COLOR_SUCCESS,
-    ADD_TEXT
+    ADD_TEXT,
+    MAKE_HEADER_BIG,
+    MAKE_HEADER_SMALL
 } from "../actions/SearchFormActionTypes";
 
 const initialState = {
     color: '',
     loading: false,
     error: null,
-    text: ''
+    text: '',
+    headerSize: '70px'
 };
 
 export const SearchFormReducer = (state = initialState, action) => {
@@ -65,6 +68,14 @@ export const SearchFormReducer = (state = initialState, action) => {
         case ADD_TEXT:
             return Object.assign({}, state, console.log(action.payload, "ACTION PAYLOAD ADD_TEXT REDUCER"), {
                 text: action.payload
+            });
+        case MAKE_HEADER_BIG:
+            return Object.assign({}, state, {
+                headerSize: '30px'
+            });
+        case MAKE_HEADER_SMALL:
+            return Object.assign({}, state, {
+                headerSize: '70px'
             });
         default:
             return state

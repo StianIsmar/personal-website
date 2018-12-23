@@ -9,14 +9,16 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStroopwafel, faHome, faBuilding } from '@fortawesome/free-solid-svg-icons'
 import { relative } from 'path';
-import './assets/css/fonts.css';
+import { makeHeaderBig, makeHeaderSmall } from '../actions/SearchFormActions'
+
+//import './assets/css/fonts.css';
 
 library.add(faHome, faBuilding)
 
 
 
 const FirstRow = styled.div`
-font-family: 'Bungee Inline', cursive;
+font-family: 'Roboto';
 background-color:#28464B;
 width: 100%;
 font-size:2em;
@@ -27,40 +29,53 @@ overflow:auto;
 height: 75px;
 
 `
-
-
-
-
+//'${this.props.headerSize}
 class StickyHeaderComp extends Component {
 
     render() {
-
         return (
-            <StickyHeader
+            // This is the sticky part of the header.
+            <div className="Header_root">
 
-                // This is the sticky part of the header.
-                header={
-                    <div className="Header_root">
+                <FirstRow style={{ height: `${this.props.headerSize}` }}>
+                    <button style={{
+                        float: 'left', backgroundColor: 'transparent', position: 'absolute', top: 0, left: 0
 
-                        <FirstRow>
-                            <button style={{
-                                float: 'left', backgroundColor: 'transparent', position: 'absolute', top: 0, left: 0
+                    }}>
+                        < FontAwesomeIcon style={{ color: 'white', alignItems: 'center' }} icon="home" />
 
-                            }}>
-                                < FontAwesomeIcon style={{ color: 'white', alignItems: 'center' }} icon="home" />
-                            </button>
-                            My projects
+                    </button>
+                    My projects
+
                         </FirstRow>
-                    </ div>
-                }>
-                <section>
+            </ div>
 
-                </section>
-            </StickyHeader>
 
 
         )
     }
 }
-export default StickyHeaderComp;
+
+function mapStateToProps(state) {
+    console.log('mapStateToProps', state);
+    return {
+        headerSize: state.headerSize
+
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+
+        upscaleHeader: () => {
+            dispatch(makeHeaderBig())
+        },
+        downscaleHeader: () => {
+            dispatch(makeHeaderSmall())
+
+        }
+
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(StickyHeaderComp);
 

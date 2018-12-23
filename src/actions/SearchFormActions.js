@@ -1,4 +1,4 @@
-import { SUBMIT_SEARCH, UPDATE_GENRE, UPDATE_TITLE, EXPORT_COLOR, ADD_TEXT, FETCH_COLOR_BEGIN, FETCH_COLOR_FAILURE, FETCH_COLOR_SUCCESS } from "./SearchFormActionTypes";
+import { SUBMIT_SEARCH, UPDATE_GENRE, UPDATE_TITLE, EXPORT_COLOR, ADD_TEXT, FETCH_COLOR_BEGIN, FETCH_COLOR_FAILURE, FETCH_COLOR_SUCCESS, MAKE_HEADER_BIG, MAKE_HEADER_SMALL } from "./SearchFormActionTypes";
 
 export function updateTitle(title) {
   return { type: UPDATE_TITLE, title }
@@ -63,4 +63,15 @@ export function addText(text) {
     type: ADD_TEXT,
     payload: text
   }
+}
+export function makeHeaderSmall() {
+  return {
+    type: MAKE_HEADER_SMALL
+  }
+}
+export function makeHeaderBig() {
+  return {
+    type: MAKE_HEADER_BIG
+  }
+
 }

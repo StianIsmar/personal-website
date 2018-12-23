@@ -8,27 +8,34 @@ import StickyHeader from 'react-sticky-header';
 import StickyHeaderComp from './StickyHeader';
 import BoxCon from './BoxCon';
 import { addText } from '../actions/SearchFormActions'
+import AscendImage from './AscendImage.js'
 
 
 
 //https://coolors.co/931621-28464b-326771-2c8c99-42d9c8
 
 const Wrapper = styled.div`
-    position:absolute;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size:2em;
-  width:100%;
-  height:200%;
+  font-size:1em;
   background-color:lightskyblue;
   text-align: center;
-  overflow-y: scroll;
+
+
+  opacity:0.8;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+
 
 `
 
 const AllColumnsStyle = styled.div`
   overflow: auto;
-  padding-top: 6%;
 height:800%;
+width: 100%;
 
 `
 
@@ -47,7 +54,7 @@ text-align: center;
 `
 const ColumnTwo = styled.div`
 background-color:#28464B ;
-width:60%;
+width:65%;
 height: 400%;
 text-align: center;
 
@@ -57,7 +64,7 @@ text-align: center;
 `
 const ColumnThree = styled.div`
 background-color: #931621;
-width:20%;
+width:15%;
 height: 400%;
 text-align: center;
 display: inline-block;
@@ -73,7 +80,33 @@ align-items: center;
 `
 
 class Frontpage extends Component {
+  constructor(props) {
+    super(props);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
 
+  componentDidMount() {
+    console.log("FRONTPAGE")
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    console.log("FRONTPAGE")
+    const distanceY = window.pageYOffset || document.documentElement.scrollTop,
+      shrinkOn = 200;
+    console.log(distanceY)
+
+    if (distanceY > shrinkOn) {
+      console.log(distanceY)
+
+      //change to smaller
+      //Call action that changes store!
+      //this.downscaleHeader()
+    } else {
+      //change styling from store
+      //this.mapDispatchToProps.upscaleHeader()
+    }
+  }
   handleSubmit(event) {
     let input = this.refs.input;
     event.preventDefault();
@@ -101,7 +134,7 @@ class Frontpage extends Component {
 
               <ColumnTwo>
                 <Grid.Column>
-                  Hardcoded
+                  <AscendImage />
                   {this.props.text}
 
                 </Grid.Column>

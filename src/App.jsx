@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Frontpage from './components/frontpage.js'
 import store from './store/index'
-import './App.css';
+//import './App.css';
 
 
 
