@@ -42,8 +42,8 @@ class StickyHeaderComp extends Component {
                     }}>
                         <FontAwesomeIcon style={{ color: 'white', alignItems: 'center' }} icon="home" />
                     </button>
-                    My projects
-                        </FirstRow>
+                    <b>MY PROJECTS</b>
+                </FirstRow>
             </ div>
 
 

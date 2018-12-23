@@ -9,17 +9,18 @@ import StickyHeaderComp from './StickyHeader';
 import BoxCon from './BoxCon';
 import { addText } from '../actions/SearchFormActions'
 import AscendImage from './AscendImage.js'
+import SagaGif from './SagaGif.js'
 
 
 
 //https://coolors.co/931621-28464b-326771-2c8c99-42d9c8
 
 const Wrapper = styled.div`
-font-family: 'Montserrat', sans-serif;
+  overflow: scroll;
+  font-family: 'Montserrat', sans-serif;
   font-size:1em;
   background-color:lightskyblue;
   text-align: center;
-
 
   opacity:0.8;
     position:fixed;
@@ -36,7 +37,6 @@ const AllColumnsStyle = styled.div`
   overflow: auto;
 height:800%;
 width: 100%;
-
 `
 
 const FirstRow = styled.div`
@@ -47,7 +47,7 @@ height:30px;
 const ColumnOne = styled.div`
 background-color:#2C8C99 ;
 width:20%;
-height: 400%;
+height: 500%;
 text-align: center;
 
 
@@ -55,21 +55,15 @@ text-align: center;
 const ColumnTwo = styled.div`
 background-color:#28464B ;
 width:65%;
-height: 400%;
+height: 500%;
 text-align: center;
-
-
-
-
 `
 const ColumnThree = styled.div`
 background-color: #931621;
 width:15%;
-height: 400%;
+height: 500%;
 text-align: center;
 display: inline-block;
-
-
 `
 const SearchStyle = styled.button`
   font-size: 1em;
@@ -78,7 +72,6 @@ const SearchStyle = styled.button`
   border-radius: 3px;
 align-items: center;
 `
-
 class Frontpage extends Component {
   constructor(props) {
     super(props);
@@ -135,6 +128,7 @@ class Frontpage extends Component {
               <ColumnTwo>
                 <Grid.Column>
                   <AscendImage />
+                  <SagaGif />
                   {this.props.text}
 
                 </Grid.Column>
