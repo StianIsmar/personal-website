@@ -3,8 +3,12 @@ import ascendImg from '../ascend-NTNU.jpg';
 import styled from 'styled-components'
 
 const ImgDiv = styled.div`
+color: white;
+font-family: 'Montserrat', sans-serif;
+font-size: 1 em;
 background-color:#28464B;
 display: flex;
+flex-direction: column; 
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -23,7 +27,8 @@ export default class AscendImage extends Component {
 
         return (
             <ImgDiv>
-                <img src={ascendImg} width="100%" height="10%" />
+                <img src={ascendImg} width="70%" height="10%" />
+                <div>Ascend NTNU Drone shell design</div>
             </ImgDiv>
         )
     }

@@ -18,7 +18,7 @@ library.add(faHome, faBuilding)
 
 
 const FirstRow = styled.div`
-font-family: 'Roboto';
+font-family: 'Montserrat', sans-serif;
 background-color:#28464B;
 width: 100%;
 font-size:2em;
@@ -36,17 +36,13 @@ class StickyHeaderComp extends Component {
         return (
             // This is the sticky part of the header.
             <div className="Header_root">
-
                 <FirstRow style={{ height: `${this.props.headerSize}` }}>
                     <button style={{
                         float: 'left', backgroundColor: 'transparent', position: 'absolute', top: 0, left: 0
-
                     }}>
-                        < FontAwesomeIcon style={{ color: 'white', alignItems: 'center' }} icon="home" />
-
+                        <FontAwesomeIcon style={{ color: 'white', alignItems: 'center' }} icon="home" />
                     </button>
                     My projects
-
                         </FirstRow>
             </ div>
 

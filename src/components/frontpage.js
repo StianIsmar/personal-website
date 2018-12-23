@@ -15,7 +15,7 @@ import AscendImage from './AscendImage.js'
 //https://coolors.co/931621-28464b-326771-2c8c99-42d9c8
 
 const Wrapper = styled.div`
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-family: 'Montserrat', sans-serif;
   font-size:1em;
   background-color:lightskyblue;
   text-align: center;
