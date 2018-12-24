@@ -3,10 +3,9 @@ import styled from 'styled-components'
 import { connect } from 'react-redux';
 import { getColorFromAPI, fetchColor } from '../actions/SearchFormActions'
 
+
 const BoxStyle = styled.button`
   font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
   border-radius: 3px;
 align-items: center;
 color: ${props => props.color};

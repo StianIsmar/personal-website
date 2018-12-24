@@ -29,8 +29,6 @@ const Wrapper = styled.div`
     top:0px;
     left:0px;
     z-index:1000;
-
-
 `
 
 const AllColumnsStyle = styled.div`
@@ -40,12 +38,12 @@ width: 100%;
 `
 
 const FirstRow = styled.div`
-background-color:#28464B;
+background-color:black;
 width: 100%;
 height:30px;
 `
 const ColumnOne = styled.div`
-background-color:#2C8C99 ;
+background-color:black ;
 width:20%;
 height: 500%;
 text-align: center;
@@ -59,11 +57,12 @@ height: 500%;
 text-align: center;
 `
 const ColumnThree = styled.div`
-background-color: #931621;
+background-color: black;
 width:15%;
 height: 500%;
 text-align: center;
 display: inline-block;
+padding: 2%;
 `
 const SearchStyle = styled.button`
   font-size: 1em;
