@@ -38,12 +38,12 @@ width: 100%;
 `
 
 const FirstRow = styled.div`
-background-color:black;
+background-color:#28464B;
 width: 100%;
 height:30px;
 `
 const ColumnOne = styled.div`
-background-color:black ;
+background-color:#28464B;
 width:20%;
 height: 500%;
 text-align: center;
@@ -139,7 +139,7 @@ class Frontpage extends Component {
                     <form onSubmit={this.handleSubmit.bind(this)}>
                       <input ref="input" />
                       <SearchStyle type="submit">
-                        Add Todoo
+                        Add Comment
                       </SearchStyle>
                     </form>
                     {this.props.info}
